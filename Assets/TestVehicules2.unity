@@ -158,13 +158,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 5
   m_Enabled: 1
 --- !u!1 &243025738
 GameObject:
@@ -216,13 +216,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 5
   m_Enabled: 1
 --- !u!1 &689711734
 GameObject:
@@ -274,13 +274,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 5
   m_Enabled: 1
 --- !u!1 &771257708
 GameObject:
@@ -656,13 +656,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 5
   m_Enabled: 1
 --- !u!4 &1989604258
 Transform:
@@ -721,7 +721,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1989604267}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 513b2d1fbb215d249bc85bf67c981e14, type: 3}
@@ -838,13 +838,13 @@ MonoBehaviour:
   Front_Right: {fileID: 1755593218}
   Back_Left: {fileID: 689711736}
   Back_Right: {fileID: 243025740}
-  Torque: 30000
+  Torque: 5000
   Speed: 0
   MaxSpeed: 200
   Brake: 30000
-  Acceleration: 5
+  Acceleration: 1
   WheelAngleMax: 5
-  ADMax: 50
+  ADMax: 35
   StopVehicule: 0
 --- !u!95 &1989604273
 Animator:
