@@ -489,13 +489,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.5
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.3
-    m_Stiffness: 1
+    m_Stiffness: 5
   m_Enabled: 1
 --- !u!33 &910600354
 MeshFilter:
@@ -822,13 +822,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.5
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.3
-    m_Stiffness: 1
+    m_Stiffness: 5
   m_Enabled: 1
 --- !u!33 &1314454883
 MeshFilter:
@@ -1014,12 +1014,11 @@ MonoBehaviour:
   FR: {fileID: 2092226877}
   BL: {fileID: 830444506}
   BR: {fileID: 1420666823}
-  Torque: 30000
+  Torque: 10000
   Speed: 0
   MaxSpeed: 200
-  Brake: 30000
-  Acceleration: 5
-  WheelAngleMax: 5
+  Brake: 5000
+  Acceleration: 1
   ADMax: 35
   StopVehicule: 0
   Backlight: {fileID: 1041104293}
@@ -1372,8 +1371,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.5133638, y: 0.79025567, z: 7.5855026}
-  m_Center: {x: 0.003009081, y: 0.51512736, z: 0.099092245}
+  m_Size: {x: 3.5133638, y: 0.84111214, z: 7.7842054}
+  m_Center: {x: 0.003009081, y: -0.27862382, z: -0.00025880337}
 --- !u!23 &1675544541
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1487,13 +1486,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.5
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.3
-    m_Stiffness: 1
+    m_Stiffness: 5
   m_Enabled: 1
 --- !u!33 &1839198635
 MeshFilter:
@@ -1588,13 +1587,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.5
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.3
-    m_Stiffness: 1
+    m_Stiffness: 5
   m_Enabled: 1
 --- !u!33 &2024721448
 MeshFilter:

@@ -22,11 +22,10 @@ public class CarController : MonoBehaviour {
     public float MaxSpeed = 200f; //la vitesse maximum
     public int Brake = 10000; //le freinage
     public float Acceleration = 10f; //le pourcentage d'acceleration du vehicule
-    public float WheelAngleMax = 10f; //permettra de tourner le vehicule
+    //public float WheelAngleMax = 10f; //permettra de tourner le vehicule
     public float ADMax = 40f; //permettre d'avoir une meilleur tenue de route pour les roues. ADMax --> AssistDirectionMax
     public bool StopVehicule = false; //pour freiner le véhicule
     public GameObject Backlight; //Feux arriere
-    //public float currentTorque;
     public float m_Downforce = 100f;
 
     void Start()
@@ -36,10 +35,10 @@ public class CarController : MonoBehaviour {
     }
 
 
-    void Update () {
+    void FixedUpdate () {
 
         Front_Left.attachedRigidbody.AddForce(-transform.up * m_Downforce * Front_Left.attachedRigidbody.velocity.magnitude);
-           
+        
         //Bruitage moteur
         float Valeur_pitch = Speed / MaxSpeed + 1.5f;
         GetComponent<AudioSource>().pitch =Mathf.Clamp(Valeur_pitch, 1f, 2.5f);
@@ -49,7 +48,6 @@ public class CarController : MonoBehaviour {
         SpeedText.text = "Speed : " + (int)Speed;
 
 
-        //currentTorque = Input.GetAxis("Vertical") * Torque /* Acceleration*/;
         //Acceleration du vehicule
         if (Input.GetKey(KeyCode.UpArrow) && Speed < MaxSpeed)
         {
@@ -59,8 +57,8 @@ public class CarController : MonoBehaviour {
                 Front_Right.brakeTorque = 0;
                 Back_Left.brakeTorque = 0;
                 Back_Right.brakeTorque = 0;
-                Back_Left.motorTorque = Input.GetAxis("Vertical") * Torque * Acceleration * Time.deltaTime;
-                Back_Right.motorTorque = Input.GetAxis("Vertical") * Torque * Acceleration * Time.deltaTime;
+                Back_Left.motorTorque = Input.GetAxis("Vertical") * Torque;// * Acceleration * Time.fixedTime;
+                Back_Right.motorTorque = Input.GetAxis("Vertical") * Torque;// * Acceleration * Time.fixedTime;
                 
             }  
         }
@@ -70,28 +68,28 @@ public class CarController : MonoBehaviour {
         {
             if (GetComponent<Rigidbody>().velocity.y > 0)
             {
-                Back_Left.motorTorque = -1000;
-                Back_Right.motorTorque = -1000;
+                Back_Left.motorTorque = -5000;
+                Back_Right.motorTorque = -5000;
             }
             else
             {
-                Back_Left.brakeTorque = 1000;
-                Back_Right.brakeTorque = 1000;
+                Back_Left.brakeTorque = 5000;
+                Back_Right.brakeTorque = 5000;
             }
         }
 
         //Direction du vehicule
-        float AD = (((WheelAngleMax - ADMax)/MaxSpeed) * Speed) + ADMax;
-        Debug.Log(AD);
+        //float AD = (((WheelAngleMax - ADMax)/MaxSpeed) * Speed) + ADMax;
+        //Debug.Log(AD);
 
-        Front_Left.steerAngle = Input.GetAxis("Horizontal") * AD;
-        Front_Right.steerAngle = Input.GetAxis("Horizontal") * AD;
+        Front_Left.steerAngle = Input.GetAxis("Horizontal") * ADMax;
+        Front_Right.steerAngle = Input.GetAxis("Horizontal") * ADMax;
 
         //Rotation des roues sans steer angle
-        FL.Rotate(Front_Left.rpm / 60 * 360 * Time.deltaTime, 0, 0);
-        FR.Rotate(Front_Right.rpm / 60 * 360 * Time.deltaTime, 0, 0);
-        BL.Rotate(Back_Left.rpm / 60 * 360 * Time.deltaTime, 0, 0);
-        BR.Rotate(Back_Right.rpm / 60 * 360 * Time.deltaTime, 0, 0);
+        FL.Rotate(Front_Left.rpm / 60 * 360 * Time.fixedTime, 0, 0);
+        FR.Rotate(Front_Right.rpm / 60 * 360 * Time.fixedTime, 0, 0);
+        BL.Rotate(Back_Left.rpm / 60 * 360 * Time.fixedTime, 0, 0);
+        BR.Rotate(Back_Right.rpm / 60 * 360 * Time.fixedTime, 0, 0);
 
         //Rotation des roues avec steer angle
         FL.localEulerAngles = new Vector3(FL.localEulerAngles.x, Front_Left.steerAngle - FL.localEulerAngles.z, FL.localEulerAngles.z);
@@ -122,8 +120,8 @@ public class CarController : MonoBehaviour {
             Front_Right.brakeTorque = 0;
             Back_Left.brakeTorque = 0;
             Back_Right.brakeTorque = 0;
-            Back_Left.motorTorque = Input.GetAxis("Vertical") * Torque * Acceleration * Time.deltaTime;
-            Back_Right.motorTorque = Input.GetAxis("Vertical") * Torque * Acceleration * Time.deltaTime;
+            Back_Left.motorTorque = Input.GetAxis("Vertical") * Torque;// * Acceleration * Time.fixedTime;
+            Back_Right.motorTorque = Input.GetAxis("Vertical") * Torque;// * Acceleration * Time.fixedTime;
         }
     }
 }
