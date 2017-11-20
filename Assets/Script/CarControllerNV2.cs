@@ -42,24 +42,24 @@ public class CarControllerNV2 : MonoBehaviour {
         SpeedText.text = "Speed : " + (int)Speed;
 
         //Acceleration du vehicule
-        //if (Input.GetKey(KeyCode.UpArrow) && Speed < MaxSpeed)
+        if (Input.GetKey(KeyCode.UpArrow) && Speed < MaxSpeed)
         {
             Back_Left.brakeTorque = 0;
             Back_Right.brakeTorque = 0;
             Front_Left.brakeTorque = 0;
             Front_Right.brakeTorque = 0;
-            Front_Left.motorTorque = Input.GetAxis("Vertical") * Torque;//Front_Left.motorTorque + (Input.GetAxis("Vertical") * Acceleration * Time.deltaTime);
-            Front_Right.motorTorque = Input.GetAxis("Vertical") * Torque; //Front_Right.motorTorque + ( Input.GetAxis("Vertical") * Acceleration * Time.deltaTime);
+            Front_Left.motorTorque = Input.GetAxis("Vertical") * Torque * Acceleration * Time.deltaTime;
+            Front_Right.motorTorque = Input.GetAxis("Vertical") * Torque * Acceleration * Time.deltaTime;
         }
 
         //Décélération du véhicule
-        //if (!Input.GetKey(KeyCode.UpArrow) && !StopVehicule || Speed > MaxSpeed)
-        //{
-        //    Front_Left.motorTorque = 0;
-        //    Front_Right.motorTorque = 0;
-        //    Front_Left.brakeTorque = Brake * Acceleration * Time.deltaTime;
-        //    Front_Right.brakeTorque = Brake * Acceleration * Time.deltaTime;
-        //}
+        if (!Input.GetKey(KeyCode.UpArrow) && !StopVehicule || Speed > MaxSpeed)
+        {
+            Front_Left.motorTorque = 0;
+            Front_Right.motorTorque = 0;
+            Front_Left.brakeTorque = Brake * Acceleration * Time.deltaTime;
+            Front_Right.brakeTorque = Brake * Acceleration * Time.deltaTime;
+        }
 
         //Direction du vehicule
         float AD = (((WheelAngleMax - ADMax) / MaxSpeed) * Speed) + ADMax;
@@ -75,8 +75,8 @@ public class CarControllerNV2 : MonoBehaviour {
             //Backlight.SetActive(true);
             Back_Left.brakeTorque = Mathf.Infinity;
             Back_Right.brakeTorque = Mathf.Infinity;
-            //Front_Left.brakeTorque = Mathf.Infinity;
-            //Front_Right.brakeTorque = Mathf.Infinity;
+            Front_Left.brakeTorque = Mathf.Infinity;
+            Front_Right.brakeTorque = Mathf.Infinity;
             Front_Left.motorTorque = 0;
             Front_Right.motorTorque = 0;
         }
@@ -87,15 +87,15 @@ public class CarControllerNV2 : MonoBehaviour {
         }
 
         //Marche arriere
-        //if (Input.GetKey(KeyCode.DownArrow))
-        //{
-        //    Back_Left.brakeTorque = 0;
-        //    Back_Right.brakeTorque = 0;
-        //    Front_Left.brakeTorque = 0;
-        //    Front_Right.brakeTorque = 0;
-        //    Front_Left.motorTorque = Input.GetAxis("Vertical") * Torque * Acceleration * Time.deltaTime;
-        //    Front_Right.motorTorque = Input.GetAxis("Vertical") * Torque * Acceleration * Time.deltaTime;
-        //}
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            Back_Left.brakeTorque = 0;
+            Back_Right.brakeTorque = 0;
+            Front_Left.brakeTorque = 0;
+            Front_Right.brakeTorque = 0;
+            Front_Left.motorTorque = Input.GetAxis("Vertical") * Torque * Acceleration * Time.deltaTime;
+            Front_Right.motorTorque = Input.GetAxis("Vertical") * Torque * Acceleration * Time.deltaTime;
+        }
     }
 
 }

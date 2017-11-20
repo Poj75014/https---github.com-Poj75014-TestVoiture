@@ -27,6 +27,7 @@ public class CarController : MonoBehaviour {
     public bool StopVehicule = false; //pour freiner le véhicule
     public GameObject Backlight; //Feux arriere
     //public float currentTorque;
+    public float m_Downforce = 100f;
 
     void Start()
     {
@@ -37,10 +38,8 @@ public class CarController : MonoBehaviour {
 
     void Update () {
 
-        //Compteur fps
-        float Fps;
-        
-        
+        Front_Left.attachedRigidbody.AddForce(-transform.up * m_Downforce * Front_Left.attachedRigidbody.velocity.magnitude);
+           
         //Bruitage moteur
         float Valeur_pitch = Speed / MaxSpeed + 1.5f;
         GetComponent<AudioSource>().pitch =Mathf.Clamp(Valeur_pitch, 1f, 2.5f);
