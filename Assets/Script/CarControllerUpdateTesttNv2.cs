@@ -64,8 +64,8 @@ public class CarControllerUpdateTesttNv2 : MonoBehaviour {
         else
             scaledTorque = Mathf.Lerp(scaledTorque, 0, (wheelRL.rpm - idealRPM) / (maxRPM - idealRPM));
 
-        /*DoRollBar(wheelFR, wheelFL);
-        DoRollBar(wheelRR, wheelRL);*/
+        //DoRollBar(wheelFR, wheelFL);
+        //DoRollBar(wheelRR, wheelRL);
 
         wheelFR.steerAngle = Input.GetAxis("Horizontal") * turnRadius;
         wheelFL.steerAngle = Input.GetAxis("Horizontal") * turnRadius;
