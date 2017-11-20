@@ -146,7 +146,7 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.5
   m_SuspensionSpring:
-    spring: 35000
+    spring: 50000
     damper: 4500
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
@@ -156,7 +156,7 @@ WheelCollider:
   m_ForwardFriction:
     m_ExtremumSlip: 1
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 1.8
+    m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
     m_Stiffness: 5
   m_SidewaysFriction:
@@ -204,7 +204,7 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.5
   m_SuspensionSpring:
-    spring: 35000
+    spring: 50000
     damper: 4500
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
@@ -214,7 +214,7 @@ WheelCollider:
   m_ForwardFriction:
     m_ExtremumSlip: 1
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 1.8
+    m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
     m_Stiffness: 5
   m_SidewaysFriction:
@@ -262,7 +262,7 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.5
   m_SuspensionSpring:
-    spring: 35000
+    spring: 50000
     damper: 4500
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
@@ -272,7 +272,7 @@ WheelCollider:
   m_ForwardFriction:
     m_ExtremumSlip: 1
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 1.8
+    m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
     m_Stiffness: 5
   m_SidewaysFriction:
@@ -644,7 +644,7 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.5
   m_SuspensionSpring:
-    spring: 35000
+    spring: 50000
     damper: 4500
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
@@ -654,7 +654,7 @@ WheelCollider:
   m_ForwardFriction:
     m_ExtremumSlip: 1
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 1.8
+    m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
     m_Stiffness: 5
   m_SidewaysFriction:
@@ -671,7 +671,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1989604267}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 8.43}
+  m_LocalPosition: {x: 0, y: 1.26, z: 8.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1989604286}
@@ -733,7 +733,7 @@ MonoBehaviour:
   wheelFL: {fileID: 112511499}
   wheelRR: {fileID: 243025740}
   wheelRL: {fileID: 689711736}
-  turnRadius: 25
+  turnRadius: 35
   torque: 4000
   brakeTorque: 2000
   driveMode: 0
