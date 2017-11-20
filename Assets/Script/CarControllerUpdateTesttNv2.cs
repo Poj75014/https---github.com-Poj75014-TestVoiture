@@ -50,12 +50,12 @@ public class CarControllerUpdateTesttNv2 : MonoBehaviour {
     {
         wheelFL.attachedRigidbody.AddForce(-transform.up * m_Downforce * wheelFL.attachedRigidbody.velocity.magnitude);
 
-        /*if (speedText != null)
-            speedText.text = "Speed: " + Speed().ToString("f0") + " km/h";*/
+        if (speedText != null)
+            speedText.text = "Speed: " + Speed().ToString("f0") + " km/h";
         //Debug.Log ("Speed: " + (wheelRR.radius * Mathf.PI * wheelRR.rpm * 60f / 1000f) + "km/h    RPM: " + wheelRL.rpm);
 
-        SpeedKmh = GetComponent<Rigidbody>().velocity.magnitude * 3.6f; //vitesse en km/h car on est en m/s sinon
-        speedText.text = "Speed : " + (int)SpeedKmh;
+        //SpeedKmh = GetComponent<Rigidbody>().velocity.magnitude * 3.6f; //vitesse en km/h car on est en m/s sinon
+        //speedText.text = "Speed : " + (int)SpeedKmh;
 
         float scaledTorque = Input.GetAxis("Vertical") * torque;
 
