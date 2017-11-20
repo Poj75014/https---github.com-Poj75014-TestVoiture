@@ -774,6 +774,7 @@ GameObject:
   - component: {fileID: 1989604273}
   - component: {fileID: 1989604270}
   - component: {fileID: 1989604269}
+  - component: {fileID: 1989604272}
   m_Layer: 0
   m_Name: CC_ME_R4
   m_TagString: Untagged
@@ -851,6 +852,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.391274, y: 0.67512274, z: 7.393373}
   m_Center: {x: -0.072318554, y: -0.32015622, z: -0.057769537}
+--- !u!114 &1989604272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1989604267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c804ba02a8556a94e9d8032675729ebe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_maxMotorTorque: 0
+  m_maxSpeed: 0
+  m_motorBrake: 0
+  m_axleInfos: []
+  m_speedText: {fileID: 0}
 --- !u!95 &1989604273
 Animator:
   serializedVersion: 3
