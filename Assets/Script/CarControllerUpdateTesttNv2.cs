@@ -10,6 +10,8 @@ public class CarControllerUpdateTesttNv2 : MonoBehaviour {
 
     public Transform centerOfGravity;
 
+    public AnimationCurve Forcecurve;
+
     public WheelCollider wheelFR;
     public WheelCollider wheelFL;
     public WheelCollider wheelRR;
@@ -34,6 +36,8 @@ public class CarControllerUpdateTesttNv2 : MonoBehaviour {
     void Start()
     {
         GetComponent<Rigidbody>().centerOfMass = new Vector3(0f, -0.9f, 0.2f); //Valeur initiale assez stable
+
+        Forcecurve = new AnimationCurve(new Keyframe(0, 0), new Keyframe(1, 1));
     }
 
     public float Speed()
@@ -44,6 +48,11 @@ public class CarControllerUpdateTesttNv2 : MonoBehaviour {
     public float Rpm()
     {
         return wheelRL.rpm;
+    }
+
+    void Update()
+    {
+        transform.position = new Vector3(transform.position.x, Forcecurve.Evaluate(Time.time), transform.position.z);
     }
 
     void FixedUpdate()
