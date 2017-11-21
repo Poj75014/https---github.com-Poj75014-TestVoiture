@@ -934,7 +934,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_maxMotorTorque: 5000
   m_maxSpeed: 200
+  m_brake: 5000
   m_motorBrake: 750
+  m_maxSteer: 35
+  m_steerFactorBySpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
   m_axleInfos:
   - leftWheel: {fileID: 112511499}
     rightWheel: {fileID: 1755593218}

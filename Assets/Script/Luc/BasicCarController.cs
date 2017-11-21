@@ -18,10 +18,20 @@ namespace Rework
     {
         [SerializeField]
         private float m_maxMotorTorque;
-        [SerializeField][Tooltip("Km/h")]
+        [SerializeField] [Tooltip("Km/h")]
         private float m_maxSpeed;
         [SerializeField]
+
+        private float m_brake;
+        [SerializeField]
         private float m_motorBrake;
+
+        [SerializeField]
+        private float m_maxSteer;
+
+        [SerializeField]
+        private AnimationCurve m_steerFactorBySpeed = new AnimationCurve(new Keyframe(0, 1), new Keyframe(1, 0.2f));
+
         [SerializeField]
         private List<AxleInfo> m_axleInfos;
 
@@ -45,7 +55,7 @@ namespace Rework
 
 
             ApplyTorque();
-
+            ApplySteer();
             DisplaySpeed();
         }
 
@@ -55,7 +65,23 @@ namespace Rework
             float motorTorque = Input.GetAxis("Vertical") * m_maxMotorTorque;
             if (motorTorque == 0)
                 motorBrake = m_motorBrake;
-            if (m_axleInfos[0].leftWheel.attachedRigidbody.velocity.magnitude * 3.6f > m_maxSpeed)
+
+            if(motorTorque < 0 && transform.InverseTransformVector(m_axleInfos[0].leftWheel.attachedRigidbody.velocity).z > 0)
+            {
+                motorBrake = m_brake;
+                motorTorque = 0;
+            }
+            else if (motorTorque > 0 && transform.InverseTransformVector(m_axleInfos[0].leftWheel.attachedRigidbody.velocity).z < 0)
+            {
+                motorBrake = m_brake;
+                motorTorque = 0;
+            }
+
+
+            if (transform.InverseTransformVector(m_axleInfos[0].leftWheel.attachedRigidbody.velocity).z * 3.6f > m_maxSpeed)
+                motorTorque = 0;
+
+            if (-transform.InverseTransformVector(m_axleInfos[0].leftWheel.attachedRigidbody.velocity).z * 3.6f > m_maxSpeed/5)
                 motorTorque = 0;
 
             for (int i = 0; i < m_axleInfos.Count; i++)
@@ -71,6 +97,30 @@ namespace Rework
                     {
                         m_axleInfos[i].rightWheel.motorTorque = motorTorque;
                         m_axleInfos[i].rightWheel.brakeTorque = motorBrake;
+                    }
+                }
+            }
+        }
+
+        void ApplySteer()
+        {
+            float hInput = Input.GetAxis("Horizontal");
+            float steerFactor = m_steerFactorBySpeed.Evaluate(transform.InverseTransformVector(m_axleInfos[0].leftWheel.attachedRigidbody.velocity).z * 3.6f / m_maxSpeed);
+
+            float steer = hInput * m_maxSteer * steerFactor;
+
+
+            for (int i = 0; i < m_axleInfos.Count; i++)
+            {
+                if (m_axleInfos[i].steering)
+                {
+                    if (m_axleInfos[i].leftWheel != null)
+                    {
+                        m_axleInfos[i].leftWheel.steerAngle = steer;
+                    }
+                    if (m_axleInfos[i].rightWheel != null)
+                    {
+                        m_axleInfos[i].rightWheel.steerAngle = steer;
                     }
                 }
             }
