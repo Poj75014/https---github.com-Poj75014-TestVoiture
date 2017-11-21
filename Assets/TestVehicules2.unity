@@ -806,7 +806,6 @@ GameObject:
   - component: {fileID: 1989604273}
   - component: {fileID: 1989604270}
   - component: {fileID: 1989604269}
-  - component: {fileID: 1989604272}
   m_Layer: 0
   m_Name: CC_ME_R4
   m_TagString: Untagged
@@ -846,6 +845,24 @@ MonoBehaviour:
   idealRPM: 10
   maxRPM: 1000
   centerOfGravity: {fileID: 0}
+  ForceTorque:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1000
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 6000
+      inSlope: 5000
+      outSlope: 0
+      tangentMode: 69
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
   wheelFR: {fileID: 1755593218}
   wheelFL: {fileID: 112511499}
   wheelRR: {fileID: 243025740}
@@ -884,35 +901,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.391274, y: 0.67512274, z: 7.393373}
   m_Center: {x: -0.072318554, y: -0.32015622, z: -0.057769537}
---- !u!114 &1989604272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1989604267}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 654282f4cbd1210418e00891a08e223f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Forcecurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0.0062561035
-      inSlope: 2.6253943
-      outSlope: 2.6253943
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 0.98751223
-      inSlope: 0.22644319
-      outSlope: 0.22644319
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
 --- !u!95 &1989604273
 Animator:
   serializedVersion: 3

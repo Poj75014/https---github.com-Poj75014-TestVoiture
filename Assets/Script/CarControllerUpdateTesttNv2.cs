@@ -10,6 +10,8 @@ public class CarControllerUpdateTesttNv2 : MonoBehaviour {
 
     public Transform centerOfGravity;
 
+    public AnimationCurve ForceTorque;
+
     public WheelCollider wheelFR;
     public WheelCollider wheelFL;
     public WheelCollider wheelRR;
@@ -44,6 +46,12 @@ public class CarControllerUpdateTesttNv2 : MonoBehaviour {
     public float Rpm()
     {
         return wheelRL.rpm;
+    }
+
+    void Update()
+    {
+        //transform.position = new Vector3(transform.position.x, ForceTorque.Evaluate(Time.time), transform.position.z);
+        torque = ForceTorque.Evaluate(Time.time);
     }
 
     void FixedUpdate()
