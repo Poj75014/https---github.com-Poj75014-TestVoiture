@@ -844,6 +844,7 @@ GameObject:
   - component: {fileID: 1989604270}
   - component: {fileID: 1989604269}
   - component: {fileID: 1989604272}
+  - component: {fileID: 1989604274}
   m_Layer: 0
   m_Name: CC_ME_R4
   m_TagString: Untagged
@@ -883,6 +884,18 @@ MonoBehaviour:
   idealRPM: 10
   maxRPM: 1000
   centerOfGravity: {fileID: 0}
+  ForceTorque:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  CurveRadius:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   wheelFR: {fileID: 1755593218}
   wheelFL: {fileID: 112511499}
   wheelRR: {fileID: 243025740}
@@ -915,7 +928,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1989604268}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3a149e01bd725844f831de1f576c2183, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -983,6 +996,36 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1989604274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1989604267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21aa8a4d2e395242b2b8055d6875fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_force:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 200
+      value: 5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  m_rigidbody: {fileID: 1989604270}
 --- !u!4 &1989604286
 Transform:
   m_ObjectHideFlags: 0
