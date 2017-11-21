@@ -11,6 +11,7 @@ public class CarControllerUpdateTesttNv2 : MonoBehaviour {
     public Transform centerOfGravity;
 
     public AnimationCurve ForceTorque;
+    public AnimationCurve CurveRadius;
 
     public WheelCollider wheelFR;
     public WheelCollider wheelFL;
@@ -52,6 +53,7 @@ public class CarControllerUpdateTesttNv2 : MonoBehaviour {
     {
         //transform.position = new Vector3(transform.position.x, ForceTorque.Evaluate(Time.time), transform.position.z);
         torque = ForceTorque.Evaluate(Time.time);
+        turnRadius = CurveRadius.Evaluate(Time.time);
     }
 
     void FixedUpdate()
