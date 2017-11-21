@@ -52,8 +52,8 @@ public class CarControllerUpdateTesttNv2 : MonoBehaviour {
     void Update()
     {
         //transform.position = new Vector3(transform.position.x, ForceTorque.Evaluate(Time.time), transform.position.z)
-        torque = ForceTorque.Evaluate(Time.time);
-        turnRadius = CurveRadius.Evaluate(Time.time);
+        //torque = ForceTorque.Evaluate(Time.time);
+        //turnRadius = CurveRadius.Evaluate(Time.time);
     }
 
     void FixedUpdate()
