@@ -6,7 +6,6 @@ public class NormalCarController : MonoBehaviour {
 
     public List<Wheels> WheelsInfos;
 
-    private Rigidbody Rb;
     public float Downforce = 100f;
 
     public float MotorTorque;
@@ -15,8 +14,7 @@ public class NormalCarController : MonoBehaviour {
     void Start()
     {
         //center of mass
-        //GetComponent<Rigidbody>().centerOfMass = new Vector3(0f, -0.9f, 0.2f); //Valeur initiale assez stable
-        GetComponent<Rigidbody>().centerOfMass = new Vector3(0f, -1f, 0.2f);
+        GetComponent<Rigidbody>().centerOfMass = new Vector3(0f, -1f, 0.2f);//Valeur aaser stable
     }
 
     void FixedUpdate () {
@@ -42,7 +40,7 @@ public class NormalCarController : MonoBehaviour {
             }
             if (WheelsInfos.DForce)
             {
-                Rb.AddForce(-transform.up * Downforce * Rb.velocity.magnitude);
+                WheelsInfos.LeftWheels.attachedRigidbody.AddForce(-transform.up * Downforce * WheelsInfos.LeftWheels.attachedRigidbody.velocity.magnitude);
             }
         }
 	}
