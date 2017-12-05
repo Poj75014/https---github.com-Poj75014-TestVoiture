@@ -32,6 +32,8 @@ public class NormalCarController : MonoBehaviour {
             {
                 WheelsInfos.LeftWheels.steerAngle = stearing;
                 WheelsInfos.RightWheels.steerAngle = stearing;
+                WheelsInfos.LWheels.localEulerAngles = new Vector3(WheelsInfos.LWheels.localEulerAngles.x, WheelsInfos.LeftWheels.steerAngle - WheelsInfos.LWheels.localEulerAngles.z, WheelsInfos.LWheels.localEulerAngles.z);
+                WheelsInfos.RWheels.localEulerAngles = new Vector3(WheelsInfos.RWheels.localEulerAngles.x, WheelsInfos.RightWheels.steerAngle - WheelsInfos.RWheels.localEulerAngles.z, WheelsInfos.RWheels.localEulerAngles.z);
             }
             if (WheelsInfos.motor)
             {
