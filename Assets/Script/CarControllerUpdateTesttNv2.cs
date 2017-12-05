@@ -36,7 +36,8 @@ public class CarControllerUpdateTesttNv2 : MonoBehaviour {
 
     void Start()
     {
-        GetComponent<Rigidbody>().centerOfMass = new Vector3(0f, -0.9f, 0.2f); //Valeur initiale assez stable
+        //GetComponent<Rigidbody>().centerOfMass = new Vector3(0f, -0.9f, 0.2f); //Valeur initiale assez stable
+        GetComponent<Rigidbody>().centerOfMass = new Vector3(0f, -1f, 0.2f);
     }
 
     public float Speed()

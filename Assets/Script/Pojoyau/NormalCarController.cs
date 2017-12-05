@@ -14,7 +14,9 @@ public class NormalCarController : MonoBehaviour {
 
     void Start()
     {
-        GetComponent<Rigidbody>().centerOfMass = new Vector3(0f, -0.9f, 0.2f); //Valeur initiale assez stable
+        //center of mass
+        //GetComponent<Rigidbody>().centerOfMass = new Vector3(0f, -0.9f, 0.2f); //Valeur initiale assez stable
+        GetComponent<Rigidbody>().centerOfMass = new Vector3(0f, -1f, 0.2f);
     }
 
     void FixedUpdate () {
