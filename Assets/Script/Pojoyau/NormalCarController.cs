@@ -50,6 +50,8 @@ public class NormalCarController : MonoBehaviour {
     {
         public WheelCollider LeftWheels;
         public WheelCollider RightWheels;
+        public Transform LWheels;
+        public Transform RWheels;
         public bool motor;
         public bool stearing;
         public bool DForce;
