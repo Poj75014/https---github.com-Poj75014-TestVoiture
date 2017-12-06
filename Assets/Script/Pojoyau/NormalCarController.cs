@@ -14,7 +14,8 @@ public class NormalCarController : MonoBehaviour {
     void Start()
     {
         //center of mass
-        GetComponent<Rigidbody>().centerOfMass = new Vector3(0f, -1f, 0.2f);//Valeur aaser stable
+        //GetComponent<Rigidbody>().centerOfMass = new Vector3(0f, -1f, 0.2f);//Valeur aaser stable
+        GetComponent<Rigidbody>().centerOfMass = new Vector3(0f, 1.4f, 0.4f);
     }
 
     void FixedUpdate () {
@@ -30,13 +31,25 @@ public class NormalCarController : MonoBehaviour {
             {
                 WheelsInfos.LeftWheels.steerAngle = stearing;
                 WheelsInfos.RightWheels.steerAngle = stearing;
-                WheelsInfos.LWheels.localEulerAngles = new Vector3(WheelsInfos.LWheels.localEulerAngles.x, WheelsInfos.LeftWheels.steerAngle - WheelsInfos.LWheels.localEulerAngles.z, WheelsInfos.LWheels.localEulerAngles.z);
-                WheelsInfos.RWheels.localEulerAngles = new Vector3(WheelsInfos.RWheels.localEulerAngles.x, WheelsInfos.RightWheels.steerAngle - WheelsInfos.RWheels.localEulerAngles.z, WheelsInfos.RWheels.localEulerAngles.z);
             }
             if (WheelsInfos.motor)
             {
                 WheelsInfos.LeftWheels.motorTorque = motor;
                 WheelsInfos.RightWheels.motorTorque = motor;
+            }
+            { 
+                Vector3 wheelWorldPoseL;
+                Quaternion wheelWorldRotL;
+                Vector3 WheelWhorldPoseR;
+                Quaternion wheelWorldRotR;
+
+                WheelsInfos.LeftWheels.GetWorldPose(out wheelWorldPoseL, out wheelWorldRotL);
+                WheelsInfos.RightWheels.GetWorldPose(out WheelWhorldPoseR, out wheelWorldRotR);
+
+                WheelsInfos.LWheels.position = wheelWorldPoseL;
+                WheelsInfos.LWheels.rotation = wheelWorldRotL;
+                WheelsInfos.RWheels.position = WheelWhorldPoseR;
+                WheelsInfos.RWheels.rotation = wheelWorldRotR;
             }
             if (WheelsInfos.DForce)
             {
@@ -57,4 +70,3 @@ public class NormalCarController : MonoBehaviour {
         public bool DForce;
     }
 }
-
