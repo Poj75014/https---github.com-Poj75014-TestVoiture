@@ -10,6 +10,10 @@ public class NormalCarController : MonoBehaviour {
 
     public float MotorTorque;
     public float SteerAngle;
+    public float SpeedNitro;
+    public bool StopNitro = false;
+    public int Brake;
+    public bool StopBrake = false;
 
     void Start()
     {
@@ -56,6 +60,35 @@ public class NormalCarController : MonoBehaviour {
             {
                 WheelsInfos.LeftWheels.attachedRigidbody.AddForce(-transform.up * Downforce * WheelsInfos.LeftWheels.attachedRigidbody.velocity.magnitude);
             }
+
+            if (WheelsInfos.Turbo)
+            {
+                if (Input.GetKey(KeyCode.T))
+                {
+                    StopNitro = true;
+                    WheelsInfos.LeftWheels.motorTorque = motor * SpeedNitro;
+                    WheelsInfos.RightWheels.motorTorque = motor * SpeedNitro;
+                }
+                else
+                {
+                    StopNitro = false;
+                }
+            }
+            if (WheelsInfos.freinBrusque)
+            {
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    StopBrake = true;
+                    WheelsInfos.LeftWheels.brakeTorque = Brake;
+                    WheelsInfos.RightWheels.brakeTorque = Brake;
+                }
+                else
+                {
+                    StopBrake = false;
+                    WheelsInfos.LeftWheels.motorTorque = motor;
+                    WheelsInfos.RightWheels.motorTorque = motor;
+                }
+            }
         }
 	}
 
@@ -69,5 +102,7 @@ public class NormalCarController : MonoBehaviour {
         public bool motor;
         public bool stearing;
         public bool DForce;
+        public bool Turbo;
+        public bool freinBrusque;
     }
 }
