@@ -51,6 +51,7 @@ public class NormalCarController : MonoBehaviour {
                 WheelsInfos.RWheels.position = WheelWhorldPoseR;
                 WheelsInfos.RWheels.rotation = wheelWorldRotR;
             }
+
             if (WheelsInfos.DForce)
             {
                 WheelsInfos.LeftWheels.attachedRigidbody.AddForce(-transform.up * Downforce * WheelsInfos.LeftWheels.attachedRigidbody.velocity.magnitude);
