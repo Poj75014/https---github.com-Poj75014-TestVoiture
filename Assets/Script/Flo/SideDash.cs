@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[RequireComponent(typeof(IGround), typeof(Rigidbody))]
+[RequireComponent(/*typeof(IGround),*/ typeof(Rigidbody))]
 public abstract class SideDash : MonoBehaviour
 {
     // ATTRIBUTES
     public float speed;
     public float dashAngleInDegrees;
 
-    protected IGround groundProperties;
+    //protected IGround groundProperties;
     
     protected enum Direction { left = -1, right = 1 };
     
@@ -19,7 +19,7 @@ public abstract class SideDash : MonoBehaviour
     
     protected virtual void Initialization()
     {
-        this.groundProperties = this.gameObject.GetComponent(typeof(IGround)) as IGround;
+        //this.groundProperties = this.gameObject.GetComponent(typeof(IGround)) as IGround;
     }
 
     protected virtual void ValidateAttributes()
