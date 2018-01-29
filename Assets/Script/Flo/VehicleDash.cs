@@ -5,6 +5,15 @@ using UnityEngine;
 public class VehicleDash : SideDash
 {
 
+    //TODO List
+
+        //Imp Jump
+        
+        //Fixe add velocity to current / not only set with dash vector
+
+        //coldown
+
+
     // Use this for initialization
     private void Start()
     {
