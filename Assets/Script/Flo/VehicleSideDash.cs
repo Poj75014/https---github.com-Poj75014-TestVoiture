@@ -33,7 +33,7 @@ public class VehicleSideDash : SideDash
 
     protected override void Jump(Direction direction)
     {
-        Vector2 angle = MathsTools.DegreesToVector2(this.dashAngleInDegrees);
+        Vector2 angle = MathsTools.DegreesToVector2(base.dashAngleInDegrees);
         Vector3 oldSpeed = this.vehicleRigidbody.velocity;
         this.vehicleRigidbody.velocity = (new Vector3(angle.x * (int)direction, -angle.y) * base.speed)
                                         + oldSpeed;
