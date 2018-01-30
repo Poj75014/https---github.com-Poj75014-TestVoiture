@@ -14,6 +14,8 @@ public class VehicleSideDash : SideDash
     //coldown
 
     private Rigidbody vehicleRigidbody;
+    [SerializeField]
+    private AnimationCurve a = new AnimationCurve(new Keyframe(0, 0),new Keyframe(0.5f, 3), new Keyframe(1, 1), new Keyframe(10, 1));
 
 
     // Use this for initialization
@@ -35,7 +37,7 @@ public class VehicleSideDash : SideDash
     {
         Vector2 angle = MathsTools.DegreesToVector2(base.dashAngleInDegrees);
         Vector3 oldSpeed = this.vehicleRigidbody.velocity;
-        this.vehicleRigidbody.velocity = (new Vector3(angle.x * (int)direction, -angle.y) * base.speed)
+        this.vehicleRigidbody.velocity = transform.TransformVector(new Vector3(angle.x * (int)direction, -angle.y) * base.speed)
                                         + oldSpeed;
         this.vehicleRigidbody.useGravity = false;
         StartCoroutine(AutoStop(direction, oldSpeed));
